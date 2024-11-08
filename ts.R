@@ -68,12 +68,14 @@ plot(forecast_value, main = "Beer Production")
 
 
 # ==================================================================
-# 
+# SEASONAL DECOMPOSITION USING LOESS (STL)
 # ==================================================================
 
+df$Monthly.beer.production <- ts(df$Monthly.beer.production, frequency = 12)
 
+loess_stl <- stl(df$Monthly.beer.production, s.window = "periodic")
 
-
+plot(loess_stl, main = "STL DECOMPOSITION OF BEER PRODUCTION")
 
 
 # ==================================================================
