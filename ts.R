@@ -1,13 +1,14 @@
 # Set working directory to the folder containing your dataset
 setwd("D:\\School Workspace\\Source Codes\\R Language\\Time Series")
 
-# ==================================================================
-# SIMPLE MOVING AVERAGE
-# ==================================================================
 # Load the dataset (adjust the path as needed)
 # Install and load TTR for Simple Moving Average (SMA)
 install.packages("TTR")
+install.packages("forecast")
 library(TTR)
+# ==================================================================
+# SIMPLE MOVING AVERAGE
+# ==================================================================
 
 # Calculate the 12-month simple moving average of beer production
 moving_avg <- SMA(df$Monthly.beer.production, n = 12)
@@ -42,15 +43,21 @@ residual_component <- decomposed_ts$random
 
 
 
+# ==================================================================
+# LOADING AND VISUALIZING A TIME SERIES DATASET
+# ==================================================================
+
+plot(df$Month,xlab = "Year", df$Monthly.beer.production, ylab = "Beer Production",n=12, type = "l")
+
+# ==================================================================
 
 
 
 # ==================================================================
-# DECOMPOSING A TIME SERIES
+# FITTING AN ARIMA MODEL
 # ==================================================================
 
 
 
-
-
 # ==================================================================
+
