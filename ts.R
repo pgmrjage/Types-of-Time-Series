@@ -6,6 +6,7 @@ setwd("D:\\School Workspace\\Source Codes\\R Language\\Time Series")
 install.packages("TTR")
 install.packages("forecast")
 library(TTR)
+library(forecast)
 # ==================================================================
 # SIMPLE MOVING AVERAGE
 # ==================================================================
@@ -57,7 +58,17 @@ plot(df$Month,xlab = "Year", df$Monthly.beer.production, ylab = "Beer Production
 # FITTING AN ARIMA MODEL
 # ==================================================================
 
+fit <- auto.arima(df$Monthly.beer.production)
+summary(fit)
 
-
+forecast_value <- forecast(fit, h = 12)
+plot(forecast_value, main = "Beer Production")
 # ==================================================================
+
+
+
+
+
+
+
 
